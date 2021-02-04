@@ -5,6 +5,8 @@ import com.example.tenet.entity.NoteEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class NoteService {
 
@@ -12,6 +14,11 @@ public class NoteService {
     public String insertNote(NoteEntity noteEntity){
         noteDao.insert(noteEntity);
         return "a";
+    }
+
+    public ArrayList<NoteEntity> selectNote(){
+//        noteDao.select();
+        return noteDao.select();
     }
 
 }

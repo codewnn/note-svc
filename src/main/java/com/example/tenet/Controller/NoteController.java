@@ -20,7 +20,13 @@ public class NoteController {
         return ResponseWrapper.successResponess("成功");
     }
 
-
+    @GetMapping("/selectNote")
+    public ResponseWrapper selectNote(){
+//        noteService.selectNote();
+        return ResponseWrapper.successResponess(noteService.selectNote());
+    }
 
 
 }
+
+

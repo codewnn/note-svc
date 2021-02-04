@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.tenet.dao.BlogDao" >
+    <resultMap id="BlogRow" type="com.example.tenet.entity.BlogEntity">
+        <result column="blog_id" property="blog_id" />
+        <result column="subject" property="subject" />
+        <result column="content" property="content" />
+        <result column="category" property="category" />
+        <result column="author" property="author" />
+        <result column="time" property="time" />
+    </resultMap>
+    <resultMap id="blog_id" type="integer" />
+    <insert id="insert" useGeneratedKeys="true" keyProperty="blogEntity.blog_id" keyColumn="blog_id">
+        insert into blog
+        (subject,content,category,author,time) VALUES
+        (#{blogEntity.subject},#{blogEntity.content},#{blogEntity.category},#{blogEntity.author},#{blogEntity.time})
+    </insert>
+    <select id="select" resultMap="BlogRow" resultType="arraylist">
+        select * from blog
+    </select>
+    <select id="select" resultMap="BlogRow" resultType="object" >
+        select * from blog where (#{blogEntity.blog_id})=blog_id
+    </select>
+</mapper>

@@ -13,4 +13,8 @@
       (test,tittle,label) VALUES
       (#{noteEntity.test},#{noteEntity.tittle},#{noteEntity.label})
   </insert>
+    <!--<resultMap id="note_id" type="list" />-->
+    <select id="select" resultType="arraylist" resultMap="NoteRow">
+        select * from note
+    </select>
 </mapper>
